@@ -195,7 +195,9 @@ public class ServerToolTip extends ToolTip {
 			
 			StyledText sText2 = new StyledText(parent, SWT.NONE);
 			sText2.setEditable(false);
-			sText2.setBackground(parent.getBackground());
+			sText2.setBackground(parent.getDisplay().getSystemColor(SWT.COLOR_INFO_BACKGROUND));
+			sText2.setForeground(parent.getDisplay().getSystemColor(SWT.COLOR_INFO_FOREGROUND));
+			
 			sText2.setText(m.getModuleType().getName());
 		}
 		
