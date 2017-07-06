@@ -22,19 +22,84 @@
   </parent>
 
   <groupId>org.eclipse.webtools.servertools</groupId>
-  <artifactId>org.eclipse.webtools.servertools.docs</artifactId>
+  <artifactId>org.eclipse.webtools.servertools</artifactId>
   <version>3.6.0-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <properties>
-    <tycho.scmUrl>scm:git:git://git.eclipse.org/gitroot/servertools/webtools.servertools.docs.git</tycho.scmUrl>
+    <tycho.scmUrl>scm:git:git://git.eclipse.org/gitroot/servertools/webtools.servertools.git</tycho.scmUrl>
   </properties>
 
   <modules>
+    <module>features/org.eclipse.jst.server_adapters.ext.feature</module>
+    <module>features/org.eclipse.jst.server_adapters.feature</module>
+    <module>features/org.eclipse.jst.server_adapters.sdk.feature</module>
+    <module>features/org.eclipse.jst.server_core.feature</module>
+    <module>features/org.eclipse.jst.server_ui.feature</module>
+    <module>features/org.eclipse.jst.server_userdoc.feature</module>
+    <module>features/org.eclipse.wst.server_adapters.feature</module>
+    <module>features/org.eclipse.wst.server_core.feature</module>
+    <module>features/org.eclipse.wst.server_ui.feature</module>
+    <module>features/org.eclipse.wst.server_userdoc.feature</module>
+
     <module>docs/org.eclipse.jst.server.ui.doc.user</module>
     <module>docs/org.eclipse.jst.server.ui.infopop</module>
     <module>docs/org.eclipse.servertools.doc.isv</module>
     <module>docs/org.eclipse.wst.server.ui.doc.user</module>
     <module>docs/org.eclipse.wst.server.ui.infopop</module>
+
+    <module>plugins/org.eclipse.jst.server.core</module>
+    <module>plugins/org.eclipse.jst.server.generic.core</module>
+    <module>plugins/org.eclipse.jst.server.generic.jonas</module>
+    <module>plugins/org.eclipse.jst.server.generic.ui</module>
+
+    <!-- per bug 412464 this module is not required for the build
+         https://bugs.eclipse.org/412464
+    <module>plugins/org.eclipse.jst.server.pde</module>
+    -->
+
+    <module>plugins/org.eclipse.jst.server.preview.adapter</module>
+    <module>plugins/org.eclipse.jst.server.tomcat.core</module>
+    <module>plugins/org.eclipse.jst.server.tomcat.ui</module>
+    <module>plugins/org.eclipse.jst.server.ui</module>
+    <module>plugins/org.eclipse.wst.internet.monitor.core</module>
+    <module>plugins/org.eclipse.wst.internet.monitor.ui</module>
+    <module>plugins/org.eclipse.wst.server.core</module>
+    <module>plugins/org.eclipse.wst.server.discovery</module>
+    <module>plugins/org.eclipse.wst.server.http.core</module>
+    <module>plugins/org.eclipse.wst.server.http.ui</module>
+    <module>plugins/org.eclipse.wst.server.preview</module>
+    <module>plugins/org.eclipse.wst.server.preview.adapter</module>
+    <module>plugins/org.eclipse.wst.server.ui</module>
   </modules>
+
+  <profiles>
+    <profile>
+      <id>integration</id>
+      <properties>
+        <skipITests>false</skipITests>
+      </properties>
+      <modules>
+        <module>tests/org.eclipse.jst.server.tomcat.core.tests</module>
+        <module>tests/org.eclipse.jst.server.tomcat.ui.tests</module>
+        <module>tests/org.eclipse.jst.server.core.tests</module>
+        <module>tests/org.eclipse.jst.server.generic.tests</module>
+        <module>tests/org.eclipse.jst.server.ui.tests</module>
+        <module>tests/org.eclipse.wst.internet.monitor.core.tests</module>
+        <module>tests/org.eclipse.wst.internet.monitor.ui.tests</module>
+        <module>tests/org.eclipse.wst.server.core.tests</module>
+        <module>tests/org.eclipse.wst.server.http.core.tests</module>
+        <module>tests/org.eclipse.wst.server.ui.tests</module>
+        <module>tests/org.eclipse.wst.server.util.tests</module>
+
+        <module>features/org.eclipse.jst.server_adapters.ext_tests.feature</module>
+        <module>features/org.eclipse.jst.server_adapters.ext.sdk.feature</module>
+        <module>features/org.eclipse.jst.server_sdk.feature</module>
+        <module>features/org.eclipse.wst.server_adapters.sdk.feature</module>
+        <module>features/org.eclipse.wst.server_sdk.feature</module>
+        <module>features/org.eclipse.wst.server_tests.feature</module>
+        <module>features/org.eclipse.jst.server_tests.feature</module>
+      </modules>
+    </profile>
+  </profiles>
 </project>
